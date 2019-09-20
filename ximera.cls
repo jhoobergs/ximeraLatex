@@ -43,6 +43,7 @@
 %% src/instructornotes.dtx  (with options: `classXimera')
 %% src/xkcd.dtx  (with options: `classXimera')
 %% src/foldable.dtx  (with options: `classXimera')
+%% src/accordion.dtx  (with options: `classXimera')
 %% src/leash.dtx  (with options: `classXimera')
 %% src/interactives/sagemath.dtx  (with options: `classXimera')
 %% src/jax.dtx  (with options: `classXimera')
@@ -976,6 +977,26 @@ Interactive
 }
 
 \newcommand{\unfoldable}[1]{#1}
+
+
+\colorlet{textColor}{black} % since textColor is referenced below
+\colorlet{background}{white} % since background is referenced below
+
+%% accordion container
+\newenvironment{accordion}{%
+}{%
+}
+%% pretty-accordion
+\iftikzexport
+\newenvironment{accordion-item}[1][]{%
+}{%
+}
+\else
+\newenvironment{accordion-item}[1][]{%
+\paragraph{#1}
+}{%
+}
+\fi
 
 
 \newenvironment{leash}[1]{%

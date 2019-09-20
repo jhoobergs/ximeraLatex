@@ -13,6 +13,7 @@
 %% src/image.dtx  (with options: `htXimera')
 %% src/dialogue.dtx  (with options: `htXimera')
 %% src/foldable.dtx  (with options: `htXimera')
+%% src/accordion.dtx  (with options: `htXimera')
 %% src/interactives/video.dtx  (with options: `htXimera')
 %% src/xkcd.dtx  (with options: `htXimera')
 %% src/link.dtx  (with options: `htXimera')
@@ -156,6 +157,12 @@
 }{\HCode{</div>}\IgnoreIndent}
 
 \renewcommand{\unfoldable}[1]{\HCode{<span class="unfoldable">}#1\HCode{</span>}}
+\renewenvironment{accordion}{\ifvmode \IgnorePar\fi \EndP\HCode{<div class="accordion">}
+}{\HCode{</div>}\IgnoreIndent}
+
+\renewenvironment{accordion-item}[1][]{\stepcounter{identification}\ifvmode \IgnorePar\fi \EndP\HCode{<h3>#1</h3><div id="accordion-item\arabic{identification}" class="accordion-item">}
+}{\HCode{</div>}\IgnoreIndent}
+
 \renewcommand{\youtube}[1]{\ifvmode \IgnorePar\fi \EndP\HCode{<div class="video youtube-player" data-youtube="#1">_</div>}}
 \renewcommand{\xkcd}[1]{\ifvmode \IgnorePar\fi \EndP\HCode{<img src="https://imgs.xkcd.com/comics/#1.png">}}
 
